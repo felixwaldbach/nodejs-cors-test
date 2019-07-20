@@ -15,7 +15,7 @@ export default class Test extends Component {
         let app = this;
         return new Promise((resolve, reject) => {
             $.ajax({
-                    url: "http://localhost:3000/test",
+                    url: process.env.REACT_APP_BACKEND_ADDRESS,
                     cache: false,
                     type: "GET",
                     contentType: 'application/json',
