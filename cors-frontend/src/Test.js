@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import $ from "jquery";
-import {testRoute} from "../../../monitoring-ui/src/api/GetMethods";
 
 export default class Test extends Component {
 
