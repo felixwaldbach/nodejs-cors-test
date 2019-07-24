@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import $ from "jquery";
+import {testRoute} from "../../../monitoring-ui/src/api/GetMethods";
 
 export default class Test extends Component {
 
@@ -10,32 +11,13 @@ export default class Test extends Component {
         };
     }
 
-    executeTestRequest(e) {
+    async executeTestRequest(e) {
         e.preventDefault();
-        let app = this;
-        return new Promise((resolve, reject) => {
-            $.ajax({
-                    url: process.env.REACT_APP_BACKEND_ADDRESS,
-                    cache: false,
-                    type: "GET",
-                    contentType: 'application/json',
-                    headers: {
-                        'Accept': 'application/json',
-                        'Content-Type': 'application/json',
-                        'Authorization': 'Bearer eohfoedsfdsoinfdsonfandsf'
-                    },
-                    data: {hello: 'world'},
-                    success: function (data) {
-                        app.setState({
-                            test: data
-                        })
-                    },
-                    error: function (xhr, status, err) {
-                        reject(err);
-                    }
-                }
-            );
-        });
+        let response = await testRoute();
+        console.log(response);
+        this.setState({
+            test: response
+        })
     }
 
     render() {
