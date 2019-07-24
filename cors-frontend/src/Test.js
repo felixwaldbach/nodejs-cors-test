@@ -21,8 +21,10 @@ export default class Test extends Component {
                     contentType: 'application/json',
                     headers: {
                         'Accept': 'application/json',
-                        'Content-Type': 'application/json'
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer eohfoedsfdsoinfdsonfandsf'
                     },
+                    data: {hello: 'world'},
                     success: function (data) {
                         app.setState({
                             test: data
